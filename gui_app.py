@@ -9,7 +9,7 @@ st.set_page_config(page_title="AI วิศวกรตรวจบ้าน", l
 st.title("🏗️ AI วิศวกรตรวจบ้าน")
 
 # --- 2. การเชื่อมต่อ API และโมเดล (เลือกอัตโนมัติ) ---
-genai.configure(api_key="AIzaSyBuxrrWhc57kC1qeaDkGPE_Htg9cn2QmDE")
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 def get_working_model():
     # ดึงรายชื่อโมเดลที่ใช้งานได้มาเลือกตัวแรกอัตโนมัติ
@@ -73,4 +73,5 @@ if uploaded_files:
 with st.sidebar:
     st.header("📋 มาตรฐานที่ใช้")
     if st.checkbox("ดูเกณฑ์จาก Google Sheets"):
+
         st.write(jasper_standard)
